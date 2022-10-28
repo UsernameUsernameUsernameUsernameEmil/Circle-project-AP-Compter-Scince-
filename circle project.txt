@@ -1,0 +1,180 @@
+package cheese;
+import java.util.*;
+public class Burger {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		Random random = new Random(); 
+
+		@SuppressWarnings("resource")
+
+		Scanner CirCalc = new Scanner(System.in);  
+		System.out.println("Please select a Calculation from the list below...");
+		System.out.println("|>1-Circumferece< -- >2-Sector Area< -- >3-Arc Lenght< -- >4-Diameter< -- >5-Area< -- >6-Radius<|");
+		int calcType = CirCalc.nextInt();  
+
+		System.out.println("Your input ---> " + calcType);
+		System.out.print("Requesting Calculation Service");
+		int timeToWait = 5; 
+		try {
+			for (int i=0; i<timeToWait ; i++) {
+				Thread.sleep(500);
+				System.out.print(".");
+			}
+		} catch (InterruptedException ie)
+		{
+			Thread.currentThread().interrupt();
+		}
+		System.out.println();
+		System.out.print("Please Wait");
+
+
+		int timeToWait2 = 5; 
+		try {
+			for (int i=0; i<timeToWait2 ; i++) {
+				Thread.sleep(500);
+				System.out.print(".");
+			}
+		} catch (InterruptedException ie)
+		{
+			Thread.currentThread().interrupt();
+		}
+		System.out.print("Connecting to NASA satalites");
+
+		int timeToWait4 = 5; 
+		try {
+			for (int i=0; i<timeToWait4 ; i++) {
+				Thread.sleep(500);
+				System.out.print(".");
+			}
+		} catch (InterruptedException ie)
+		{
+			Thread.currentThread().interrupt();
+		}
+		System.out.println();  
+
+		System.out.println("unable to connect to starlink service");
+		System.out.println("Retrying");
+		System.out.println("Wanna Skip the wait ? \n get premium for only $10.99 a month!");
+		System.out.println("Reconnting... Succsess!");
+		int time = random.nextInt(59);
+		int time2=time;
+		time = time*60;
+
+
+		System.out.println("Your time in the queue :"+ time2+" min");
+
+		int timeToWait3 = time; 
+		try {
+			for (int i=0; i<timeToWait3 ; i++) {
+				Thread.sleep(10);
+				System.out.print(".");
+			}
+		} catch (InterruptedException ie)
+		{
+			Thread.currentThread().interrupt();
+		}
+		System.out.println();
+		if(calcType==1) {
+
+			Scanner Radius = new Scanner(System.in);  
+			System.out.println("Please Enter the Radius");
+			System.out.println("||||||||||||||");
+			double rad = Radius.nextDouble();  
+			System.out.println("Your input ---> " + rad);
+			double circum= circumferece(rad);
+			System.out.println("The Circumfernce is: "+circum);
+
+		}
+
+		else if (calcType==2) {
+
+			
+			Scanner sec = new Scanner(System.in);  
+			System.out.println("Please Enter the Sector Angle");
+			System.out.println("||||||||||||||");
+			double sector = sec.nextDouble();
+			System.out.println("Please Enter the Radius");
+			System.out.println("||||||||||||||");
+			double rad = sec.nextDouble();  
+			double secarea= sectorarea (sector,rad);
+			System.out.println("The sector area is--> "+ secarea);
+			
+
+		}
+
+		else if (calcType==3) {
+			Scanner num = new Scanner(System.in);
+			System.out.println("Please Enter the Radius");
+			System.out.println("||||||||||||||");
+			double rad = num.nextDouble();
+			System.out.println("Please Enter the arc angle");
+			System.out.println("||||||||||||||");
+			double angle = num.nextDouble(); 
+			double arclen =arclenght(angle,rad);
+			System.out.println("The Arc length is---> " + arclen);
+		}
+		else if (calcType==4) {
+			Scanner num = new Scanner(System.in);
+			System.out.println("Please Enter the Radius");
+			System.out.println("||||||||||||||");
+			double rad = num.nextDouble();
+			double diaf = diam(rad);
+			System.out.println("The Diameter is---> "+diaf);
+		}
+		else if (calcType==5) {
+			Scanner num = new Scanner(System.in);
+			System.out.println("Please Enter the Radius");
+			System.out.println("||||||||||||||");
+			double rad = num.nextDouble();
+			double area = arya(rad);
+			System.out.println("The Area is ---> "+area);
+		}
+		else if (calcType==6) {
+			Scanner num = new Scanner(System.in);
+			System.out.println("Please Enter the Radius");
+			System.out.println("||||||||||||||");
+			double rad = num.nextDouble();
+			System.out.println("the radius is---> "+rad);
+			try {
+				Thread.sleep(10000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("jk, enter the circumferce please");
+			double cir = num.nextDouble();
+			double radius = radi(cir);
+			System.out.println("The Radius is ---> "+radius);
+		}
+	}
+
+	
+	
+
+	public static double circumferece (double rad) {
+		double circum = rad*Math.PI*2;	 
+		return circum;
+	}
+
+	public static double sectorarea (double sector,double rad) {
+		double secarea = (Math.PI*Math.PI*rad)/360*sector;	 
+		return secarea;
+	}
+	public static double arclenght (double rad,double angle) {
+		double arc = (2*Math.PI*rad)/360*angle;	 
+		return arc;
+	}
+	public static double diam (double rad) {
+		double dia = rad*2;	 
+		return dia;
+	}
+	public static double arya (double rad) {
+		double area =(Math.PI*(rad*rad));	 
+		return area;
+}
+	public static double radi (double cir) {
+		double radiu =((cir/2)/Math.PI);	 
+		return radiu;
+	}
+}
